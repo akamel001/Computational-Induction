@@ -23,7 +23,11 @@ Computational Induction is used to prove the correctness of numerous problems in
 
 \section{Introduction}
 
-Induction can be very advantageous when verifying the execution of computer programs. Given an input predicate, that meets a restriction, we can prove that a program is correct with respect to such input and output predicates. With such restriction we can also show that the program terminates and at the completion of execution the output predicate is satisfied. Induction can also be powerful when proving termination of primitive recursive functions. A very popular method to prove is the execution of Euclid's greatest common divisor algorithm. In later section we show the proof of this primitively recursive function. While computational induction is applied to various areas of Computer Science, it is important to note proving correctness of Distributed Systems and language Compilers. Proving these two subfields of Computer Science, we rely heavily on the use and understanding of induction. In Distributed systems we use induction to verify many things such as protocols and logic of events. While language compilers have proven much harder to verify, proving compiler correctness would show that all programs compiled would be sound and correct. It also becomes increasingly more difficult to prove compilers that have optimization enabled. 
+Induction can be very advantageous when verifying the execution of computer programs. Given an input predicate, that meets a restriction, we can prove that a program is correct with respect to such input and output predicates. With such restriction we can also show that the program terminates and at the completion of execution the output predicate is satisfied. 
+
+Induction can also be powerful when proving termination of primitive recursive functions. A very popular method to prove is the execution of Euclid's greatest common divisor algorithm. In later section we show the proof of this primitively recursive function. 
+
+While computational induction is applied to various areas of Computer Science, it is important to note proving correctness of Distributed Systems and language Compilers. Proving these two subfields of Computer Science, we rely heavily on the use and understanding of induction. In Distributed systems we use induction to verify many things such as protocols and logic of events. While language compilers have proven much harder to verify, proving compiler correctness would show that all programs compiled would be sound and correct. It also becomes increasingly more difficult to prove compilers that have optimization enabled. 
 
 \section{A proposed problem}
 
@@ -147,7 +151,7 @@ It is also important to note that when we compile the code we do not use any typ
 
 \begin{center} \textbf{gcc -O3 add.c -o add}\end{center}
 
-We obtain the following timing results.
+Notice the -O3 flag used in compilation of the source code. This flag tells the compiler to enable maximum optimization when possible. By doing so we obtain the following timing results.
 
 \begin{itemize}
 \item  Recursive Addition 92847 + 63820 = 156667 \\Time: 0.046ms
@@ -158,7 +162,7 @@ We obtain the following timing results.
 
 \item For-loop Addition 92847 + 63820 = 156667 \\Time: 0ms
 \end{itemize}
-We see that the loop functions take about the same exact time. The recursive functions only vary by one hundredth of a millisecond. 
+We see that the loop functions take about the same exact time. The recursive functions only vary by one hundredth of a millisecond. The time from our previous trail runs has improved drastically using compiler optimization. 
  
 Formally we can prove by induction the tail-recursive method. The proof uses evidence semantics.  
 \[\forall x, y.\exists z.Add(x,y,z) \text{ such that z = x + y}\]
